@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<p>Software for {{item}}:</p>
+
+
+<form method="POST" class="post-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Submit</button>
+<a href="{% url 'listingsoftware' %}">View software list</a>
+<a href="{% url 'customersoftware' item.id %}">View software list for this customer</a>
+
+</form>
+
+{% endblock %}

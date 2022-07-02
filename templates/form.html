@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>New Customer</title>  
+</head>  
+<body>  
+<form method="POST" class="post-form" enctype="multipart/form-data">  
+        {% csrf_token %}  
+        {{ form.as_p }}  
+        <button type="submit" >Submit</button>  
+<a href="{% url 'listingcustomers' %}">View customer list</a>
+</form>  
+</body>  
+</html> 

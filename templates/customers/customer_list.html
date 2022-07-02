@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if object_list %}
+    <p>Customer List:</p>
+    {% for instance in object_list %}
+        <p>{{instance.customer_name}}</p>
+        <td><a class="btn btn-sm btn-into" href="{% url 'editcustomer' instance.id %}">Edit</a></td>
+        <td><a class="btn btn-sm btn-into" href="{% url 'deletecustomer' instance.id %}">Delete</a></td>
+        <td><a class="btn btn-sm btn-into" href="{% url 'software' instance.id %}">Add Software</a></td>
+        <td><a class="btn btn-sm btn-into" href="{% url 'customersoftware' instance.id %}">List software for this customer</a></td>
+    {% endfor %}
+    <p><a href="{% url 'listingsoftware' %}">View Full Software List</a></p>
+{% else %}
+    <a href="{% url 'listingcustomers' %}">View customer list</a>
+{% endif %}
+<p><a href="{% url 'customers' %}">Add Customer</a></p>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<p>Software for {{item}}:</p>
+
+<form method="POST" class="post-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <img src={{item.logo.url}} width="250" />
+    <button>Submit</button>
+<a href="{% url 'listingsoftware' %}">View software list</a>
+
+</form>
+
+{% endblock %}
